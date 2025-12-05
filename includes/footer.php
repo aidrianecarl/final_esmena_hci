@@ -7,7 +7,8 @@ $current_year = date('Y');
         <div class="row">
             <div class="col-md-4 mb-4">
                 <h5 class="fw-bold mb-3" style="color: #FF6B6B;">
-                    <i class="fas fa-building me-2"></i><?php echo APP_NAME; ?>
+                    <img src="public/logo.png" alt="<?php echo APP_NAME; ?>" style="height: 24px; margin-right: 8px; vertical-align: middle; object-fit: contain;">
+                    <?php echo APP_NAME; ?>
                 </h5>
                 <p class="text-muted small">
                     Professional visitor management system for <?php echo APP_LOCATION; ?>.

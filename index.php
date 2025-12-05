@@ -369,9 +369,9 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
         
         <!-- Action Buttons -->
         <div class="mb-4 d-flex gap-2">
-            <button type="button" class="btn btn-new-visitor" data-bs-toggle="modal" data-bs-target="#addVisitorModal">
+            <a href="create-visitor.php" class="btn btn-new-visitor">
                 <i class="fas fa-user-plus"></i> New Visitor
-            </button>
+            </a>
         </div>
         
         <!-- Visitors Table -->
@@ -421,77 +421,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['delete_id'])) {
                 <p>Try adjusting your filters or add a new visitor.</p>
             </div>
             <?php endif; ?>
-        </div>
-    </div>
-    
-    <!-- Add Visitor Modal -->
-    <div class="modal fade" id="addVisitorModal" tabindex="-1">
-        <div class="modal-dialog modal-lg">
-            <div class="modal-content" style="border-radius: 12px; border: none; box-shadow: 0 8px 32px rgba(0,0,0,0.15);">
-                <div class="modal-header" style="background: var(--primary-red); color: white; border: none; border-radius: 12px 12px 0 0;">
-                    <h5 class="modal-title"><i class="fas fa-user-plus"></i> Add New Visitor</h5>
-                    <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
-                </div>
-                <form action="api/visitors/create.php" method="POST">
-                    <div class="modal-body">
-                        <input type="hidden" name="user_id" value="<?php echo $_SESSION['user_id']; ?>">
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-user"></i> Full Name *</label>
-                            <input type="text" name="visitor_name" class="form-control" placeholder="Last name, First name" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-map-marker-alt"></i> Address *</label>
-                            <input type="text" name="address" class="form-control" placeholder="Complete address" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-phone"></i> Contact Number *</label>
-                            <input type="tel" name="contact_number" class="form-control" placeholder="09xx xxx xxxx" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-building"></i> School/Office *</label>
-                            <input type="text" name="school_office" class="form-control" placeholder="Department name" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-flag"></i> Purpose *</label>
-                            <select name="purpose_of_visit" class="form-select" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                                <option value="">-- Select Purpose --</option>
-                                <?php foreach ($purposes as $p): ?>
-                                    <option value="<?php echo $p['id']; ?>">
-                                        <?php echo ucfirst(htmlspecialchars($p['purpose_name'])); ?>
-                                    </option>
-                                <?php endforeach; ?>
-                            </select>
-                        </div>
-                        
-                        <div class="row">
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label"><i class="fas fa-calendar"></i> Date *</label>
-                                <input type="date" name="date_of_visit" class="form-control" value="<?php echo date('Y-m-d'); ?>" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                            </div>
-                            <div class="col-md-6 mb-3">
-                                <label class="form-label"><i class="fas fa-clock"></i> Time *</label>
-                                <input type="time" name="time_of_visit" class="form-control" value="<?php echo date('H:i'); ?>" required style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;">
-                            </div>
-                        </div>
-                        
-                        <div class="mb-3">
-                            <label class="form-label"><i class="fas fa-sticky-note"></i> Notes</label>
-                            <textarea name="notes" class="form-control" rows="3" placeholder="Any remarks..." style="border-radius: 8px; border: 1px solid var(--card-border); padding: 10px 12px;"></textarea>
-                        </div>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" style="border-radius: 8px; border: 1px solid var(--card-border); background: white; color: #555;">Cancel</button>
-                        <button type="submit" class="btn btn-new-visitor">
-                            <i class="fas fa-save"></i> Save Visitor
-                        </button>
-                    </div>
-                </form>
-            </div>
         </div>
     </div>
     
