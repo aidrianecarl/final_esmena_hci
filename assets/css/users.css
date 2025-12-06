@@ -1,0 +1,145 @@
+:root {
+            --primary-red: #DC143C;
+            --secondary-red: #C41E3A;
+            --light-bg: #f8f9fa;
+            --card-border: #e9ecef;
+        }
+        
+        body {
+            background: var(--light-bg);
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', sans-serif;
+        }
+        
+        .main-content {
+            margin-left: 260px;
+            margin-top: 80px;
+            padding: 32px;
+            min-height: 100vh;
+        }
+        
+        .page-header {
+            margin-bottom: 32px;
+        }
+        
+        .page-header h1 {
+            font-size: 32px;
+            font-weight: 700;
+            color: #222;
+            margin: 0 0 8px 0;
+        }
+        
+        .page-header p {
+            color: #666;
+            margin: 0;
+            font-size: 15px;
+        }
+        
+        .users-card {
+            background: white;
+            border-radius: 12px;
+            border: 1px solid var(--card-border);
+            overflow: hidden;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.04);
+        }
+        
+        .users-header {
+            background: #f8f9fa;
+            border-bottom: 1px solid var(--card-border);
+            padding: 20px 24px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .users-table {
+            margin: 0;
+        }
+        
+        .users-table thead {
+            background: #f8f9fa;
+            border-bottom: 2px solid var(--card-border);
+        }
+        
+        .users-table thead th {
+            color: #666;
+            font-weight: 600;
+            font-size: 13px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            padding: 16px 20px;
+            border: none;
+        }
+        
+        .users-table tbody tr {
+            border-bottom: 1px solid var(--card-border);
+            transition: background 0.2s ease;
+        }
+        
+        .users-table tbody tr:hover {
+            background: #fafbfc;
+        }
+        
+        .users-table tbody td {
+            padding: 16px 20px;
+            color: #555;
+            vertical-align: middle;
+        }
+        
+        .role-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+        
+        .role-admin {
+            background: rgba(220, 20, 60, 0.15);
+            color: var(--primary-red);
+        }
+        
+        .role-manager {
+            background: rgba(0, 123, 255, 0.15);
+            color: #007bff;
+        }
+        
+        .role-staff {
+            background: rgba(108, 117, 125, 0.15);
+            color: #6c757d;
+        }
+        
+        .status-active {
+            color: #28a745;
+        }
+        
+        .status-inactive {
+            color: #dc3545;
+        }
+        
+        .btn-action {
+            padding: 6px 12px;
+            font-size: 13px;
+            border-radius: 6px;
+            border: 1px solid var(--card-border);
+            background: white;
+            color: #555;
+            transition: all 0.2s ease;
+        }
+        
+        .btn-action:hover {
+            background: var(--primary-red);
+            color: white;
+            border-color: var(--primary-red);
+        }
+        
+        .empty-state {
+            text-align: center;
+            padding: 60px 40px;
+            color: #999;
+        }
+        
+        .empty-state i {
+            font-size: 48px;
+            margin-bottom: 16px;
+            color: #ddd;
+        }

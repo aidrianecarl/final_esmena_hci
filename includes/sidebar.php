@@ -3,7 +3,6 @@ $user_role = $_SESSION['role'] ?? 'staff';
 $current_page = basename($_SERVER['PHP_SELF']);
 ?>
 
-<!-- New sidebar navigation component - Fixed sticky positioning -->
 <div class="sidebar" style="width: 260px; background: #f8f9fa; border-right: 1px solid #e9ecef; min-height: 100vh; padding: 20px 0; position: fixed; left: 0; top: 80px; bottom: 0; z-index: 999; overflow-y: auto;">
     <div class="sidebar-content">
         <div class="px-3 mb-4">
@@ -44,11 +43,11 @@ $current_page = basename($_SERVER['PHP_SELF']);
 <style>
     .main-content {
         margin-left: 260px;
-        margin-top: 80px;
+        margin-top: 30px;
         padding: 32px;
     }
     
     body {
-        padding-top: 80px;
+        padding-top: 30px;
     }
 </style>

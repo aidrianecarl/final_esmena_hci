@@ -1,41 +1,41 @@
-<?php
-$current_year = date('Y');
-?>
-
-<footer class="bg-dark text-white mt-5 pt-5" style="border-top: 2px solid #DC143C;">
-    <div class="container-fluid px-4">
-        <div class="row">
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3" style="color: #FF6B6B;">
-                    <img src="public/logo.png" alt="<?php echo APP_NAME; ?>" style="height: 24px; margin-right: 8px; vertical-align: middle; object-fit: contain;">
-                    <?php echo APP_NAME; ?>
-                </h5>
-                <p class="text-muted small">
-                    Professional visitor management system for <?php echo APP_LOCATION; ?>.
-                </p>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3" style="color: #FF6B6B;">Contact</h5>
-                <p class="text-muted small mb-2">
-                    <i class="fas fa-envelope me-2"></i><?php echo APP_EMAIL; ?>
-                </p>
-                <p class="text-muted small">
-                    <i class="fas fa-map-marker-alt me-2"></i><?php echo APP_LOCATION; ?>
-                </p>
-            </div>
-            <div class="col-md-4 mb-4">
-                <h5 class="fw-bold mb-3" style="color: #FF6B6B;">Quick Links</h5>
-                <ul class="list-unstyled text-muted small">
-                    <li class="mb-2"><a href="index.php" class="text-decoration-none" style="color: #aaa;">Dashboard</a></li>
-                    <li class="mb-2"><a href="logout.php" class="text-decoration-none" style="color: #aaa;">Logout</a></li>
-                </ul>
-            </div>
-        </div>
-        <hr class="bg-secondary">
-        <div class="row">
-            <div class="col-12 text-center text-muted small pb-3">
-                <p>&copy; <?php echo $current_year; ?> <?php echo APP_NAME; ?>. All rights reserved.</p>
-            </div>
-        </div>
+<!-- Footer Component -->
+<footer class="app-footer">
+    <div class="footer-inner">
+        <span>&copy; <?php echo date("Y"); ?> <?php echo APP_NAME; ?> — All Rights Reserved.</span>
+        <span>Programmed by: <strong>Aidriane Carl Esmeña</strong></span>
     </div>
 </footer>
+
+<style>
+    .app-footer {
+        background: #DC143C;
+        color: white;
+        padding: 14px 0;
+        width: calc(100% - 260px); /* Do not cover sidebar */
+        margin-left: 260px;        /* Align beside sidebar */
+        box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.05);
+        margin-top: 40px;          /* Space above footer */
+    }
+
+    .footer-inner {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 0 32px;
+        font-size: 14px;
+        font-weight: 500;
+    }
+
+    @media(max-width: 991px) {
+        .app-footer {
+            width: 100%;
+            margin-left: 0;
+            text-align: center;
+        }
+
+        .footer-inner {
+            flex-direction: column;
+            gap: 6px;
+        }
+    }
+</style>
