@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 05, 2025 at 03:10 PM
+-- Generation Time: Dec 06, 2025 at 02:09 AM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -42,9 +42,10 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `role`, `status`, `created_at`) VALUES
-(1, 'admin', 'admin@example.com', 'admin123', 'admin', 'active', '2025-12-04 03:18:34'),
-(2, 'staff1', 'staff1@example.com', 'staff123', 'staff', 'active', '2025-12-04 03:18:34'),
-(3, 'manager1', 'manager1@example.com', 'manager123', 'manager', 'active', '2025-12-04 03:18:34');
+(1, 'admin', 'adminn@gmail.com', 'admin123', 'admin', 'active', '2025-12-04 03:18:34'),
+(2, 'staff1', 'staff1@gmail.com', 'staff123', 'staff', 'active', '2025-12-04 03:18:34'),
+(3, 'manager1', 'manager1@gmail.com', 'manager123', 'manager', 'active', '2025-12-04 03:18:34'),
+(6, 'aidriane', 'aidriane1233@gmail.com', 'aidriane123', 'manager', 'active', '2025-12-06 00:05:42');
 
 -- --------------------------------------------------------
 
@@ -74,21 +75,13 @@ INSERT INTO `visitors` (`visitor_id`, `visitor_name`, `address`, `contact_number
 (2, 'Maria Santos', '456 Oak Ave, Sorsogon', '09172234567', 'Registration Office', 2, '2025-12-04', '10:15:00', NULL, 2, '2025-12-04 03:18:34'),
 (3, 'Jose Cruz', '789 Pine Rd, Sorsogon', '09173234567', 'Admissions', 3, '2025-12-04', '11:00:00', NULL, 1, '2025-12-04 03:18:34'),
 (4, 'Ana Garcia', '321 Elm St, Sorsogon', '09174234567', 'Finance Office', 6, '2025-12-04', '13:30:00', NULL, 2, '2025-12-04 03:18:34'),
-(5, 'Pedro Lopez', '654 Maple Dr, Sorsogon', '09175234567', 'Library', 8, '2025-12-04', '14:45:00', NULL, 1, '2025-12-04 03:18:34');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `visitor_logs`
---
-
-CREATE TABLE `visitor_logs` (
-  `log_id` int(11) NOT NULL,
-  `visitor_id` int(11) NOT NULL,
-  `action` varchar(50) NOT NULL,
-  `performed_by` int(11) DEFAULT NULL,
-  `timestamp` timestamp NOT NULL DEFAULT current_timestamp()
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+(5, 'Pedro Lopez', '654 Maple Dr, Sorsogon', '09175234567', 'Library', 8, '2025-12-04', '14:45:00', NULL, 1, '2025-12-04 03:18:34'),
+(6, 'Aidriane Esmeña', 'Magsaysay street Bibincahan', '09109337587', 'CCDI', 5, '2025-12-19', '10:30:00', 'noted!', 1, '2025-12-05 23:27:04'),
+(7, 'Aidriane Esmeña', 'Magsaysay street Bibincahan', '09109337587', 'CCDI', 2, '2025-12-06', '09:30:00', '', 1, '2025-12-05 23:28:09'),
+(8, 'Aidrianee Esmeña', 'Magsaysay street Bibincahan', '09109337587', 'CCDI', 1, '2025-12-06', '08:30:00', '', 1, '2025-12-05 23:28:59'),
+(9, 'Aidrianeee Esmeña', 'Magsaysay street Bibincahan', '09109337587', 'CCDI', 4, '2025-12-06', '09:45:00', '', 1, '2025-12-05 23:41:16'),
+(10, 'Aidrianeeee Esmeña', 'Magsaysay street Bibincahan', '09109337587', 'CCDI', 8, '2025-12-06', '10:45:00', '', 1, '2025-12-05 23:41:49'),
+(11, 'Cute', 'Sorsogon City, Philippines', '09109338576', 'SSU', 8, '2025-12-06', '10:10:00', '', 6, '2025-12-06 00:06:43');
 
 -- --------------------------------------------------------
 
@@ -137,14 +130,6 @@ ALTER TABLE `visitors`
   ADD KEY `purpose_id` (`purpose_id`);
 
 --
--- Indexes for table `visitor_logs`
---
-ALTER TABLE `visitor_logs`
-  ADD PRIMARY KEY (`log_id`),
-  ADD KEY `visitor_id` (`visitor_id`),
-  ADD KEY `performed_by` (`performed_by`);
-
---
 -- Indexes for table `visit_purposes`
 --
 ALTER TABLE `visit_purposes`
@@ -159,19 +144,13 @@ ALTER TABLE `visit_purposes`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=7;
 
 --
 -- AUTO_INCREMENT for table `visitors`
 --
 ALTER TABLE `visitors`
-  MODIFY `visitor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT for table `visitor_logs`
---
-ALTER TABLE `visitor_logs`
-  MODIFY `log_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `visitor_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
 
 --
 -- AUTO_INCREMENT for table `visit_purposes`
@@ -189,13 +168,6 @@ ALTER TABLE `visit_purposes`
 ALTER TABLE `visitors`
   ADD CONSTRAINT `visitors_ibfk_1` FOREIGN KEY (`created_by`) REFERENCES `users` (`user_id`),
   ADD CONSTRAINT `visitors_ibfk_2` FOREIGN KEY (`purpose_id`) REFERENCES `visit_purposes` (`id`);
-
---
--- Constraints for table `visitor_logs`
---
-ALTER TABLE `visitor_logs`
-  ADD CONSTRAINT `visitor_logs_ibfk_1` FOREIGN KEY (`visitor_id`) REFERENCES `visitors` (`visitor_id`),
-  ADD CONSTRAINT `visitor_logs_ibfk_2` FOREIGN KEY (`performed_by`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
